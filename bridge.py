@@ -26,6 +26,7 @@ config = {
         'id': 1,
         'port': 'RPI',
         'devices': '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15',
+        'refresh_delay_device': 0,
         'refresh_delay_loop': 10,
     },
     'ir': {
@@ -276,6 +277,7 @@ def cec_refresh():
     try:
         for id in config['cec']['devices'].split(','):
             cec_send('8F', id=int(id))
+            time.sleep(float(config['cec']['refresh_delay_device']))
 
         cec_send('71', id=5)
 
