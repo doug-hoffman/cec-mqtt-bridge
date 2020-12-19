@@ -22,6 +22,7 @@ config = {
     },
     'cec': {
         'enabled': 0,
+        'devicename': 'cec-ir-mqtt',
         'id': 1,
         'port': 'RPI',
         'devices': '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15',
@@ -322,7 +323,7 @@ try:
             import cec
 
             cec_config = cec.libcec_configuration()
-            cec_config.strDeviceName = "cec-ir-mqtt"
+            cec_config.strDeviceName = config['cec']['devicename']
             cec_config.bActivateSource = 0
             cec_config.deviceTypes.Add(cec.CEC_DEVICE_TYPE_RECORDING_DEVICE)
             cec_config.clientVersion = cec.LIBCEC_VERSION_CURRENT
