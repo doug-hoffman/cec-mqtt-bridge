@@ -1,0 +1,10 @@
+[Unit]
+Description=cec-mqtt-bridge
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/opt/cec-mqtt-bridge
+ExecStart=/opt/cec-mqtt-bridge/bridge.py
+
+[Install]
+WantedBy=multi-user.target
