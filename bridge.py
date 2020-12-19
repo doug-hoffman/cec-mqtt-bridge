@@ -26,6 +26,7 @@ config = {
         'id': 1,
         'port': 'RPI',
         'devices': '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15',
+        'refresh_delay_loop': 10,
     },
     'ir': {
         'enabled': 0,
@@ -365,7 +366,7 @@ try:
     while True:
         if int(config['cec']['enabled']) == 1:
             cec_refresh()
-        time.sleep(10)
+        time.sleep(float(config['cec']['refresh_delay_loop']))
 
 except KeyboardInterrupt:
     cleanup()
